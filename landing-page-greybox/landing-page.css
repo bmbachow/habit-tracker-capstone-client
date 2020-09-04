@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  background-color: rgb(241, 241, 241);
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 920px;
+  border-style: solid;
+  margin: 1.3rem;
+}
+
+.title {
+  background-color: rgb(220, 220, 220);
+  font-size: 40px;
+  border-style: solid;
+  text-align: center;
+  margin: 1.3rem;
+}
+
+.description {
+  background-color: rgb(220, 220, 220);
+  border-style: solid;
+  margin: 1.3rem;
+}
+
+.actions {
+ position: fixed;
+ top: 870px;
+ right: 80px;
+}
+
+.login {
+  margin-right: 2rem;
+  padding: 10px;
+  border-style: solid;
+  background-color: rgb(220, 220, 220);
+}
+
+.sign-up {
+  padding: 10px;
+  border-style: solid;
+  background-color: rgb(220, 220, 220);
+}

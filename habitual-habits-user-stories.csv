@@ -1,0 +1,16 @@
+As a new user,I want to sign up for an account,High
+As a new user,I want to understand what the application does,High
+As a returning user,I want to login into my account,High
+As a returning user,I want to create a new habit category,High
+As a returning user,I want to edit a habit category,High
+As a returning user,I want to create a new habit,High
+As a returning user,I want to edit a habit,High
+As a returning user,I want to view my progress,High
+As a returning user,I want to modify frequency of habit completion,High
+As a returning user,I want to indicate if and when a task was performed,High
+As a returning user,I want to delete a habit,High
+As a returning user,I want to delete a category,High
+As an administrator,I want to view all user accounts,High
+As an administrator,I want to lock/unlock accounts,Medium
+As a user with disabilities,I want high contrast colors,High
+As a user with disabilities,I want ability to use large fonts,Medium

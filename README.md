@@ -36,6 +36,14 @@ Landing/Register Page
 ## Functionality (to do now)
 The app's functionality includes:
 * Every User has the ability to create an account
+* Every user can create new category
+* Every user can create a new habit
+* Users can modify frequency of desired habit completion
+* Every user can indicate if and when a task was performed
+* Users can delete categories
+* Users can rename categories
+* Users can delete habits
+* Users can view their progress
 
 ## Technology (done)
 * Front-End: HTML5, CSS3, JavaScript ES6, React
@@ -51,12 +59,32 @@ The app's functionality includes:
             * __Register.js__ (stateful) -
         * __Navbar.js__ (stateless) -
 
-## Back-end Structure - Business Objects (to do later)
+## Back-end Structure - Business Objects (done)
 * Users (database table)
     * id (auto-generated)
     * username (email validation)
     * password (at least 8 chars, at least one alpha and a special character validation)
-
+    * first_name (varchar(255) alpha_numerical)
+    * last_name (varchar(255) alpha_numerical)
+    * nickname (varchar(255) alpha_numerical)
+* Categories (database table)
+    * id (auto-generated)
+    * user_id
+    * name (varchar(40) - alpha-numerical)
+    * is_deleted (boolean default false)
+* Habits (database table)
+    * id (auto-generated)
+    * category_id
+    * name (varchar(255) - alpha-numerical + special characters)
+    * is_deleted (boolean default false)
+* Tasks (database table)
+    * id (auto-generated)
+    * habit_id
+    * is_completed (boolean default false)
+* Frequency (database table)
+    * id (auto-generated)
+    * task_id
+    * number_of_days (integer maximum 4 characters)
 
 ## API Documentation (to do later)
 API Documentation details:
