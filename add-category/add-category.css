@@ -1,18 +1,15 @@
 * {
     box-sizing: border-box;
   }
-
-  header {
-    padding-top: 45px;
-  }
   
   body {
     font-family: "Open Sans",
-    sans-serif; 
+    sans-serif;
     font-size: 20px;
     color: #444;
     text-align: center;
-    line-height: 3.5;
+    line-height: 1.5;
+    min-width: 320px;
   }
   
   nav,
@@ -29,9 +26,13 @@
     z-index: 10;
   }
   
+  header {
+    padding: 45px 15px;
+  }
+  
   section {
     min-height: 200px;
-    padding: 5% 0;
+    padding: 30px 15px;
     background-color: #bbb;
   }
   
@@ -39,10 +40,29 @@
     background-color: #ddd;
   }
   
-  .habit {
-    font-size: 12px;
+  p {
+    margin: 0 auto;
+    max-width: 650px;
+  }
+  
+  p + p {
+    margin-top: 15px;
+  }
+  
+  form {
+    text-align: left;
+  }
+  
+  input, textarea {
+    width: 70%;
+    max-width: 5000px;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
   }
 
-  .create {
-    padding-top: 70px;
+  .category-description {
+    text-align: left;
+    margin-bottom: 30px;
   }
