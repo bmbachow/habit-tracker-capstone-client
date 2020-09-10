@@ -47,3 +47,7 @@
   p + p {
     margin-top: 15px;
   }
+
+  .required {
+    color: red;
+  }
