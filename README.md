@@ -2,7 +2,7 @@
 This app helps users create and maintain habits.
 
 ## Working Prototype (to do later)
-You can access a working prototype of the React app here: https://your-app-client.herokuapp.com/ and Node app here: https://your-app-server.herokuapp.com/
+You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://your-app-server.herokuapp.com/
 
 
 ## User Stories (to do now)
@@ -97,7 +97,7 @@ App is built to be usable on mobile devices, as well as responsive across mobile
 
 ## Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
-* add more functionality
+* specific functionality for different types uses such as personal training, addiction recovery, work habits
 
 ## How to run it (done)
 Use command line to navigate into the project folder and run the following in terminal
