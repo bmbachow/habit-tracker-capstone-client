@@ -11,7 +11,21 @@
     line-height: 1.5;
     min-width: 320px;
   }
+
+  nav,
+  footer {
+    padding: 1% 0;
+    background-color: #aaa;
+  }
   
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+
   header {
     padding: 45px 15px;
   }
@@ -47,6 +61,15 @@
   .form-section {
     margin-bottom: 30px;
   }
+  
+  .how-often {
+    font-size: 14px;
+  }
+
+  .habit-description {
+    text-align: left;
+    margin-bottom: 30px;
+  }
 
   .category-description {
     text-align: left;
@@ -55,4 +78,26 @@
 
   .required, .delete {
     color: red;
+  }
+
+  .feedback {
+    color: blue;
+  }
+
+  banner {
+    padding: 1% 0;
+    background-color: #aaa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .habit {
+    font-size: 12px;
+  }
+
+  .create {
+    padding-top: 70px;
   }

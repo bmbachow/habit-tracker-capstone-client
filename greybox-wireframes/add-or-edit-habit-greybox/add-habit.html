@@ -4,7 +4,7 @@
       <title>Habitual Habits</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
-      <link rel="stylesheet" type="text/css" href="add-habit.css">
+      <link rel="stylesheet" type="text/css" href="../../greybox-wireframes/post-landing-page.css">
   </head>
 
   <body>
@@ -14,16 +14,16 @@
       </header>
       <section>
         <form id="record-habit">
-          <div class="form-section">
+          <div className="form-section">
             <label for="habit-name">Habit Name</label>
-            <input type="text" name="habit-name" required>
-            <p class="required">please enter a name for your habit</p>
+            <input type="text" name="habit-name" required/>
+            <p className="required">please enter a name for your habit</p>
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="habit-description">Habit Description</label>
             <textarea name="habit-description" rows="10"></textarea>
           </div>
-          <div class="how-often">
+          <div className="how-often">
           <p>How often do you want to perform this habit?</p><br>
             <label><input type="radio" name="often" value="every-day" required/>Every Day</label><br>
             <label><input type="radio" name="often" value="every-two-days"/>Every Other Day</label><br>
@@ -32,7 +32,7 @@
             <label><input type="radio" name="often" value="every-five-days"/>Every Five Days</label><br>
             <label><input type="radio" name="often" value="every-six-days"/>Every Six Days</label><br>
             <label><input type="radio" name="often" value="every-seven-days">/Once Per Week</label><br>
-            <p class="required">please choose an option</p>
+            <p className="required">please choose an option</p>
             <input type="submit" value="Submit"/>      
             <input type="reset" value="Reset"/>
           </div>
@@ -44,16 +44,16 @@
       </header>
       <section>
         <form id="record-habit">
-          <div class="form-section">
+          <div className="form-section">
             <label for="habit-name">Habit Name</label>
             <input type="text" name="habit-name" required/>
-            <p class="required">please enter a name for your habit</p>
+            <p className="required">please enter a name for your habit</p>
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="habit-description">Habit Description</label>
             <textarea name="habit-description" rows="10"></textarea>
           </div>
-          <div class="how-often">
+          <div className="how-often">
           <p>How often do you want to perform this habit?</p><br>
             <label><input type="radio" name="often" value="every-day" required/>Every Day</label><br>
             <label><input type="radio" name="often" value="every-two-days"/>Every Other Day</label><br>
@@ -62,11 +62,11 @@
             <label><input type="radio" name="often" value="every-five-days"/>Every Five Days</label><br>
             <label><input type="radio" name="often" value="every-six-days"/>Every Six Days</label><br>
             <label><input type="radio" name="often" value="every-seven-days"/>Once Per Week</label><br>
-            <p class="required">please choose an option</p>
+            <p className="required">please choose an option</p>
             <input type="submit" value="Submit"/>      
             <input type="reset" value="Reset"/>
           </div>
-          <div class="delete">
+          <div className="delete">
             <input type="button" value="Delete"/>
             <span><p>Are you Sure?</p><input type="button" value="Yes"/><input type="button" value="No"/></span>
           </div>
