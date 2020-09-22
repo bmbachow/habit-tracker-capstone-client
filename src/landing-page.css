@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('./src/background-image.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 920px;
+    border-style: solid;
+    margin: 1.3rem;
+  }
+  
+  .title {
+    font-size: 40px;
+    border-style: solid;
+    text-align: center;
+    margin: 1.3rem;
+  }
+  
+  .description {
+    border-style: solid;
+    margin: 1.3rem;
+  }
+  
+  .actions {
+   position: fixed;
+   top: 870px;
+   right: 80px;
+  }
+  
+  .login {
+    margin-right: 2rem;
+    padding: 10px;
+    border-style: solid;
+  }
+  
+  .sign-up {
+    padding: 10px;
+    border-style: solid;
+  }

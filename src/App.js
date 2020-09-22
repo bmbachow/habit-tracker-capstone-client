@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from "react-dom";
+import { Route } from 'react-router-dom';
 import './App.css';
+import './landing-page.css';
+import Landing from './Landing';
+import SignUp from './SignUp';
+import Dashboard from './Dashboard';
+import EditCategory from './EditCategory'
+import EditHabit from './EditHabit'
+import AddHabit from './AddHabit'
+import AddCategory from './AddCategory'
+import HabitProgress from './HabitProgress'
+import Login from './Login'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <Route exact path='/' component={Landing} />
+
+        <Route path='/signup' component={SignUp} />
+
+        <Route path='/dashboard' component={Dashboard} />
+
+        <Route path='/edit/:category' component={EditCategory} />
+
+        <Route path='/edit/:habit' component={EditHabit} />
+
+        <Route path='/add/habit' component={AddHabit} />
+
+        <Route path='/add/category' component={AddCategory} />
+
+        <Route path='/progress/:habit' component={HabitProgress} />
+
+        <Route path='login' component={Login}/>
+      </div>
+    );
+  }
 }
 
 export default App;
