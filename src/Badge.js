@@ -12,31 +12,31 @@ export class Badge extends Component {
     }
 
 
-    //not sure how to code these, but thinking about ternary qualifiers and then a function that runs all of them simultaneously
+//     //not sure how to code these, but thinking about ternary qualifiers and then a function that runs all of them simultaneously
 
-    nickelQualifier(){
-        condition ? this.setState({badge: "nickel"}) : do nothing
-    }
+//     nickelQualifier(){
+//         condition ? this.setState({badge: "nickel"}) : do nothing
+//     }
 
-    bronzeQualifier(){
-        condition ? this.setState({badge: "bronze"}) : do nothing
-    }
+//     bronzeQualifier(){
+//         condition ? this.setState({badge: "bronze"}) : do nothing
+//     }
 
-    silverQualifier(){
-        condition ? this.setState({badge: "silver"}) : do nothing
-    }
+//     silverQualifier(){
+//         condition ? this.setState({badge: "silver"}) : do nothing
+//     }
 
-    goldQualifier(){
-        condition ? this.setState({badge: "silver"}) : do nothing
-    }
+//     goldQualifier(){
+//         condition ? this.setState({badge: "silver"}) : do nothing
+//     }
     
 
-    badgeCreator(){
-        this.nickelQualifier()
-        this.bronzeQualifier()
-        this.silverQualifier()
-        this.goldQualifier()
-    }
+//     badgeCreator(){
+//         this.nickelQualifier()
+//         this.bronzeQualifier()
+//         this.silverQualifier()
+//         this.goldQualifier()
+//     }
 
     render() {
         return (
@@ -50,4 +50,4 @@ export class Badge extends Component {
     }
 }
 
-export default Badge
+export default Badge;

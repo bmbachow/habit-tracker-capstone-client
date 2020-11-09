@@ -1,6 +1,7 @@
 import React from "react";
 import "./landing-page.css";
 import {Link} from "react-router-dom";
+import Footer from "./Footer"
 
 class Landing extends React.Component {
  
@@ -16,6 +17,7 @@ class Landing extends React.Component {
              <Link to='/login' className="login">Login</Link>
              <Link to='/signup' className="sign-up">Sign Up</Link>
           </section>
+          <Footer/>
         </section>
        </div>
     );
