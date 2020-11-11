@@ -6,7 +6,7 @@ body {
   font-family: "Open Sans",
   sans-serif;
   font-size: 20px;
-  color: #444;
+  color: rgb(0, 0, 0);
   text-align: center;
   line-height: 1.5;
   min-width: 320px;
@@ -33,11 +33,13 @@ header {
 section {
   min-height: 200px;
   padding: 30px 15px;
-  background-color: #bbb;
+  background-color: rgb(255, 210, 128);
+  opacity: .8;
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
+  background-color: rgb(163, 106, 0);
+  opacity: .8;
 }
 
 p {
