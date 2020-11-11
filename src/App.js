@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import './landing-page.css';
 import Landing from './Landing';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';

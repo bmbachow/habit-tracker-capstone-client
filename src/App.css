@@ -31,7 +31,6 @@ header {
 }
 
 section {
-  min-height: 200px;
   padding: 30px 15px;
   background-color: rgb(255, 210, 128);
   opacity: .8;
@@ -100,6 +99,7 @@ banner {
   font-size: 12px;
 }
 
-.create {
-  padding-top: 70px;
+.dashboard  div {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

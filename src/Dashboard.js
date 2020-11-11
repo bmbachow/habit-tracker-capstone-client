@@ -1,50 +1,105 @@
-import React, { Component } from 'react'
-import Badge from './Badge'
-import HabitDropDown from './HabitDropDown'
-import {Link} from "react-router-dom";
+import React, { Component } from 'react';
+import Badge from './Badge';
+import { Link } from 'react-router-dom';
+import TokenService from '../src/services/token-service'
+import config from './config';
 
-export class Dashboard extends Component {
-
-toggle = () => {
+class Dashboard extends Component {
     
+    constructor(props) {
+        super(props);
+        this.state = {
+            categories: [{
+                name: '',
+								habits: [{name : '', is_deleted: 0}],
+								is_deleted: 0
+		}]
+	}
+}
+        
+		componentDidMount = () => {
+			let getCategoriesByUserId =  `${config.API_ENDPOINT}/category/user/${TokenService.getUserId()}`;
+			
+			fetch(getCategoriesByUserId)
+				.then(response => response.json())
+				.then(data => {
+					this.setState({
+						categories: data
+					})
+				.catch(error => console.log(error))
+		})
+	}
+
+		toggle = () => {
+
+		}
+    
+
+
+
+
+    // this.setState(prevState => ({
+    //     ...prevState,
+    //     someProperty: {
+    //         ...prevState.someProperty,
+    //         someOtherProperty: {
+    //             ...prevState.someProperty.someOtherProperty, 
+    //             anotherProperty: {
+    //                ...prevState.someProperty.someOtherProperty.anotherProperty,
+    //                flag: false
+    //             }
+    //         }
+    //     }
+    // }))
+
+	render() {
+
+		
+
+		return (
+			<section className='flex-container'>
+				<div>
+					<Badge />
+				</div>
+				<header>
+					<h1 className='title'>Dashboard</h1>
+				</header>
+				<section className={'categories, dashboard'}>
+					<h3>Categories</h3>
+					<div>
+					<div><Link to='/edit/:category' className='link'>
+							Health
+						</Link><button onClick={() => this.toggle()}>-</button></div>
+						<div className='habit'>
+							<div className='create'>
+								<Link to='/add/habit' id='create-habit-button'>
+									<button>Create Habit</button>
+								</Link>
+							</div>
+						</div>
+					</div>
+					<div className='category'>
+					<Link to='/edit/:category' className='link'>
+							Productivity
+						</Link>
+						<button onClick={() => this.toggle()}>+</button>
+					</div>
+					<div>
+					<Link to='/edit/:category' className='link'>
+							Emotional Regulation
+						</Link>
+						<button onClick={() => this.toggle()}>+</button>
+					</div>
+					<div className='create'>
+						<Link to='/add/category' id='create-category-button'>
+							<button>Create Category</button>
+						</Link>
+					</div>
+				</section>
+			</section>
+		);
+	}
 }
 
-render(){
-
-    return (
-        <section className="flex-container">
-            <banner>
-                <Badge/>
-            </banner>
-            <header>
-                <h1 className="title">Dashboard</h1>
-            </header>
-            <section className="categories">
-                <h3>Categories</h3>
-                <div>
-                    <span>Health</span>
-                        <button onClick={() => this.toggle()}>+</button>
-                        <Link to='/edit/:category' className="link">Edit Category</Link>
-                            <HabitDropDown/>
-                    <div className="habit">
-                    <div className="create"><Link to='/add/habit' id="create-habit-button"><button>Create Habit</button></Link></div>
-                    </div>
-                </div>
-                <div>
-                    <span>Productivity</span>
-                    <button onClick={() => this.toggle()}>+</button>
-                </div>
-                <div>
-                    <span>Emotional Regulation</span>
-                    <button onClick={() => this.toggle()}>+</button>
-                </div>
-                <div className="create"><Link to='/add/category' id="create-category-button"><button>Create Category</button></Link></div>
-            </section>
-
-        </section>
-    )
-}}
 
 export default Dashboard;
-
-

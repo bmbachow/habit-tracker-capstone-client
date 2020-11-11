@@ -84,16 +84,6 @@
     color: blue;
   }
 
-  banner {
-    padding: 1% 0;
-    background-color: #aaa;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-  }
-
   .habit {
     font-size: 12px;
   }

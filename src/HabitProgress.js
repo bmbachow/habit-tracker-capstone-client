@@ -4,11 +4,11 @@ export class HabitProgress extends Component {
     render() {
         return (
             <div>
-                <banner className="feedback">
+                <div className="feedback">
                     <h6>3x habit streak.  Good Job!</h6>
                     <h6>7x habit streak.  Way to Go!</h6>
                     <h6>15x habit streak.  You Rock!</h6>
-                </banner>
+                </div>
 
                 <section><header>
                     <h1>Existing Habit Name</h1>
