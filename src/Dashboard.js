@@ -5,46 +5,60 @@ import TokenService from '../src/services/token-service'
 import config from './config';
 
 class Dashboard extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            categories: [{
-                name: '',
-								habits: [{name : '', is_deleted: 0}],
-								is_deleted: 0,
-								display_habits : false
-		}]
-	}
-}
-        
-		componentDidMount = () => {
-			let getCategoriesByUserId =  `${config.API_ENDPOINT}/category/user/${TokenService.getUserId()}`;
-			
-			
-			fetch(getCategoriesByUserId)
-				.then(response => response.json())
-				.then(data => {
-					this.setState({
-						categories: data
-					})
-				.catch(error => console.log(error))
-		})
 
-		this.setState({...this.state, display_habits : false})
-
-		//I want to map display_habits as false to each category
-
-	}
-
-		toggle = (event) => {
-			event.preventDefault();
-			let habitsByCategory = ``
-
+	constructor(props) {
+		super(props);
+		this.state = {
+			categories: [],
+			habits: []
 		}
+	}
+
+	componentDidMount = () => {
+
+		// maybe need to destructure the state?
+		// let getCategoriesByUserId = `${config.API_ENDPOINT}/category/user/${TokenService.getUserId()}`;
+		let getCategoriesByUserId = `${config.API_ENDPOINT}/category/user/1`;
+
+		fetch(getCategoriesByUserId)
+			.then(response => response.json())
+			.then(data => {
+				this.setState({
+					categories: data
+				})
+				console.log(this.state)
+			})
+			.catch(error => console.log(error))
+
+		// fetch(getHabitsByUserId)
+
+	}
+
+
+	showHabits = (event) => {
+		event.preventDefault();
+		// letGetHabitsByCategoryId = ``
+		this.setState({ display_habits: true }, () => {
+			document.addEventListener('click', this.hideHabits);
+		});
+	}
+
+	hideHabits = () => {
+		this.setState({ display_habits: false }, () => {
+			document.removeEventListener('click', this.hideHabits);
+		});
+	}
 
 
 	render() {
+
+		let categoriesHTMLOutput = ''
+		if (this.state.categories.length > 0){
+			categoriesHTMLOutput = this.state.categories.map(category => {
+				return (<li>{category.category_name}</li>)
+			})
+		}
+
 
 		// {this.state.categories.display_habits ? 
 		// return (
@@ -57,6 +71,7 @@ class Dashboard extends Component {
 
 		return (
 			<section className='flex-container'>
+			{categoriesHTMLOutput}
 				<div>
 					<Badge />
 				</div>
@@ -66,28 +81,35 @@ class Dashboard extends Component {
 				<section className={'categories, dashboard'}>
 					<h3>Categories</h3>
 					<div>
-					<div><Link to='/edit/:category' className='link'>
+						<div><Link to='/edit/:category' className='link'>
 							Health
-						</Link><button onClick={() => this.toggle()}>-</button></div>
-						<div className='habit'>
-							<div className='create'>
-								<Link to='/add/habit' id='create-habit-button'>
-									<button>Create Habit</button>
-								</Link>
-							</div>
+						</Link><button onClick={() => this.hideHabits()}>-</button></div>
+						<ul>
+							<li><Link to='/edit/:habit' className='link'>
+								Lift Weights
+						</Link></li>
+							<li><Link to='/edit/:habit' className='link'>
+								Eat Salad
+						</Link></li>
+						</ul>
+						<div className='create'>
+							<Link to='/add/habit' id='create-habit-button'>
+								<button>Create Habit</button>
+							</Link>
 						</div>
 					</div>
+
 					<div className='category'>
-					<Link to='/edit/:category' className='link'>
+						<Link to='/edit/:category' className='link'>
 							Productivity
 						</Link>
-						<button onClick={() => this.toggle()}>+</button>
+						<button onClick={() => this.showHabits()}>+</button>
 					</div>
 					<div>
-					<Link to='/edit/:category' className='link'>
+						<Link to='/edit/:category' className='link'>
 							Emotional Regulation
 						</Link>
-						<button onClick={() => this.toggle()}>+</button>
+						<button onClick={() => this.showHabits()}>+</button>
 					</div>
 					<div className='create'>
 						<Link to='/add/category' id='create-category-button'>

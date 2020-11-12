@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ValidationError from "./ValidationError";
+import AuthApiService from './services/auth-api-service';
+import TokenService from './services/token-service';
 
 class SignUp extends Component {
   constructor(props) {
@@ -46,6 +48,23 @@ class SignUp extends Component {
     console.log("Name: ", name.value);
     console.log("Password: ", password.value);
     console.log("Repeat Password: ", repeatPassword.value);
+    AuthApiService.postUser({
+      user_name: name.value,
+      password: password.value,
+  })
+
+      .then(response => {
+          console.log('user:', response)
+          name.value = ''
+          password.value = ''
+          repeatPassword.value = ''
+          TokenService.saveAuthToken(response.authToken)
+          TokenService.saveUserId(response.id)
+          window.location = '/landing'
+      })
+      .catch(res => {
+          this.setState({ error: res.error })
+      })
   }
 
   validateName() {
