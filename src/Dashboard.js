@@ -12,13 +12,15 @@ class Dashboard extends Component {
             categories: [{
                 name: '',
 								habits: [{name : '', is_deleted: 0}],
-								is_deleted: 0
+								is_deleted: 0,
+								display_habits : false
 		}]
 	}
 }
         
 		componentDidMount = () => {
 			let getCategoriesByUserId =  `${config.API_ENDPOINT}/category/user/${TokenService.getUserId()}`;
+			
 			
 			fetch(getCategoriesByUserId)
 				.then(response => response.json())
@@ -28,33 +30,30 @@ class Dashboard extends Component {
 					})
 				.catch(error => console.log(error))
 		})
+
+		this.setState({...this.state, display_habits : false})
+
+		//I want to map display_habits as false to each category
+
 	}
 
-		toggle = () => {
+		toggle = (event) => {
+			event.preventDefault();
+			let habitsByCategory = ``
 
 		}
-    
 
-
-
-
-    // this.setState(prevState => ({
-    //     ...prevState,
-    //     someProperty: {
-    //         ...prevState.someProperty,
-    //         someOtherProperty: {
-    //             ...prevState.someProperty.someOtherProperty, 
-    //             anotherProperty: {
-    //                ...prevState.someProperty.someOtherProperty.anotherProperty,
-    //                flag: false
-    //             }
-    //         }
-    //     }
-    // }))
 
 	render() {
 
-		
+		// {this.state.categories.display_habits ? 
+		// return (
+		// 	<button onClick={this.hideHabits}>-</button>
+
+		// ): (
+		// 	<button onClick={this.showHabits}>+</button>
+		// )}
+
 
 		return (
 			<section className='flex-container'>
