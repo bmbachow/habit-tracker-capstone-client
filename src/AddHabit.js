@@ -1,6 +1,30 @@
 import React, { Component } from 'react'
+import HabitProgress from './HabitProgress';
 
 export class AddHabit extends Component {
+
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         store: {
+    //             habits: [{
+    //                 name: '',
+    //                 frequency: 7
+    //             }]
+    //         },
+    //     };
+    // }
+
+    componentDidMount(){}
+
+    handleSubmit(){}
+
+    addHabit = (habit) => {
+        this.setState({
+            ...this.state.store.habits, habit
+        })
+    }
+
     render() {
         return (
             <div>
@@ -28,8 +52,7 @@ export class AddHabit extends Component {
                             <label><input type="radio" name="often" defaultValue="every-six-days" />Every Six Days</label>
                             <label><input type="radio" name="often" defaultValue="every-seven-days" />Once Per Week</label>
                             <p className="required">please choose an option</p>
-                            <input type="submit" defaultValue="Submit" />
-                            <input type="reset" defaultValue="Reset" />
+                            <input onSubmit={() => this.addHabit()} type="submit" defaultValue="Submit" />
                         </div>
                     </form>
                 </section>

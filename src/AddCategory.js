@@ -20,7 +20,6 @@ export class AddCategory extends Component {
                         </div>
                         <div className="submit">
                             <input type="submit" defaultValue="Submit" />
-                            <input type="reset" defaultValue="Reset" />
                         </div>
                     </form>
                 </section>

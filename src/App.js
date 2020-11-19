@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Landing from './Landing';
 import SignUp from './SignUp';
@@ -17,23 +17,25 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/' component={Landing} />
+        <Switch>
+          <Route exact path='/' component={Landing} />
 
-        <Route path='/signup' component={SignUp} />
+          <Route path='/signup' component={SignUp} />
 
-        <Route path='/dashboard' component={Dashboard} />
+          <Route path='/dashboard' component={Dashboard} />
 
-        <Route path='/edit/:category' component={EditCategory} />
+          <Route path='/edit/:category' component={EditCategory} />
 
-        <Route path='/edit/:habit' component={EditHabit} />
+          <Route path='/edit/:habit' component={EditHabit} />
 
-        <Route path='/add/habit' component={AddHabit} />
+          <Route path='/add/habit' component={AddHabit} />
 
-        <Route path='/add/category' component={AddCategory} />
+          <Route path='/add/category' component={AddCategory} />
 
-        <Route path='/progress/:habit' component={HabitProgress} />
+          <Route path='/progress/:habit' component={HabitProgress} />
 
-        <Route path='/login' component={Login}/>
+          <Route path='/login' component={Login} />
+        </Switch>
       </div>
     );
   }

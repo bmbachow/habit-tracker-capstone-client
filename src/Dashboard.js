@@ -54,8 +54,13 @@ class Dashboard extends Component {
 
 		let categoriesHTMLOutput = ''
 		if (this.state.categories.length > 0){
-			categoriesHTMLOutput = this.state.categories.map(category => {
-				return (<li>{category.category_name}</li>)
+			categoriesHTMLOutput = this.state.categories.map((category, idx) => {
+				return (
+				<div>
+				<li key={idx}>{category.category_name}</li>
+				<button onClick={this.showHabits}>+</button>
+				</div>
+				)
 			})
 		}
 
