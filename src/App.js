@@ -33,7 +33,7 @@ class App extends React.Component {
 
         <Route path='/progress/:habit' component={HabitProgress} />
 
-        <Route path='login' component={Login}/>
+        <Route path='/login' component={Login}/>
       </div>
     );
   }

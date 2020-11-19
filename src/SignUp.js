@@ -7,7 +7,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: {
+      userName: {
         value: "",
         touched: false
       },
@@ -18,12 +18,20 @@ class SignUp extends Component {
       repeatPassword: {
         value: "",
         touched: false
+      },
+      firstName: {
+        value: "",
+        touched: false
+      },
+      lastName: {
+        value: "",
+        touched: false
       }
     };
   }
 
-  updateName(name) {
-    this.setState({ name: { value: name, touched: true } });
+  updateUserName(userName) {
+    this.setState({ userName: { value: userName, touched: true } });
   }
 
   updatePassword(password) {
@@ -41,38 +49,67 @@ class SignUp extends Component {
     });
   }
 
+  updateFirstName(firstName) {
+    this.setState({ firstName: { value: firstName, touched: true } });
+  }
+
+  updateLastName(lastName) {
+    this.setState({ lastName: { value: lastName, touched: true } });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    const { name, password, repeatPassword } = this.state;
+    const { userName, password, repeatPassword, firstName, lastName } = this.state;
 
-    console.log("Name: ", name.value);
+    console.log("Name: ", userName.value);
     console.log("Password: ", password.value);
     console.log("Repeat Password: ", repeatPassword.value);
+    console.log("First Name: ", firstName.value)
+    console.log("Last Name: ", lastName.value)
     AuthApiService.postUser({
-      user_name: name.value,
+      user_name: userName.value,
       password: password.value,
+      first_name: firstName.value,
+      last_name: lastName.value
   })
 
       .then(response => {
           console.log('user:', response)
-          name.value = ''
+          userName.value = ''
           password.value = ''
           repeatPassword.value = ''
+          firstName.value = ''
+          lastName.value = ''
           TokenService.saveAuthToken(response.authToken)
           TokenService.saveUserId(response.id)
-          window.location = '/landing'
+          // this.props.history.push('/landing');
+          window.location = '/'
       })
       .catch(res => {
           this.setState({ error: res.error })
       })
   }
 
-  validateName() {
-    const name = this.state.name.value.trim();
-    if (name.length === 0) {
-      return "Name is required";
-    } else if (name.length < 3) {
-      return "Name must be at least 3 characters long";
+  validateUserName() {
+    const userName = this.state.userName.value.trim();
+    if (userName.length === 0) {
+      return "Username is required";
+    } else if (userName.length < 3) {
+      return "Username must be at least 3 characters long";
+    }
+  }
+
+  validateFirstName() {
+    const firstName = this.state.firstName.value.trim();
+    if (firstName.length === 0) {
+      return "Please enter your first name."
+    }
+  }
+
+  validateLastName() {
+    const lastName = this.state.lastName.value.trim();
+    if (lastName.length === 0) {
+      return "Please enter your last name."
     }
   }
 
@@ -97,24 +134,48 @@ class SignUp extends Component {
   }
 
   render() {
-    const nameError = this.validateName();
+    const userNameError = this.validateUserName();
     const passwordError = this.validatePassword();
     const repeatPasswordError = this.validateRepeatPassword();
+    const firstNameError = this.validateFirstName();
+    const lastNameError = this.validateLastName();
 
     return (
       <form className="registration" onSubmit={e => this.handleSubmit(e)}>
         <h2>Register</h2>
         <div className="registration__hint">* required field</div>
         <div className="form-group">
-          <label htmlFor="name">Name *</label>
+          <label htmlFor="name">First Name *</label>
           <input
             type="text"
             className="registration__control"
             name="name"
             id="name"
-            onChange={e => this.updateName(e.target.value)}
+            onChange={e => this.updateFirstName(e.target.value)}
           />
-          {this.state.name.touched && <ValidationError message={nameError} />}
+          {this.state.firstName.touched && <ValidationError message={firstNameError} />}
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Last Name *</label>
+          <input
+            type="text"
+            className="registration__control"
+            name="name"
+            id="name"
+            onChange={e => this.updateLastName(e.target.value)}
+          />
+          {this.state.lastName.touched && <ValidationError message={lastNameError} />}
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Username *</label>
+          <input
+            type="text"
+            className="registration__control"
+            name="name"
+            id="name"
+            onChange={e => this.updateUserName(e.target.value)}
+          />
+          {this.state.userName.touched && <ValidationError message={userNameError} />}
         </div>
         <div className="form-group">
           <label htmlFor="password">Password *</label>
@@ -154,7 +215,9 @@ class SignUp extends Component {
             type="submit"
             className="registration__button"
             disabled={
-              this.validateName() ||
+              this.validateFirstName() ||
+              this.validateLastName() ||
+              this.validateUserName() ||
               this.validatePassword() ||
               this.validateRepeatPassword()
             }

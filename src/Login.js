@@ -77,15 +77,16 @@ class Login extends React.Component {
 
             .then((response) => {
                 console.log("response ID", response);
-                // userName.value = "";
-                // password.value = "";
+                userName.value = "";
+                password.value = "";
                 TokenService.saveAuthToken(response.authToken);
                 TokenService.saveUserId(response.userId);
-                // window.location = "/user/dash";
+                // this.props.history.push('/dashboard');
+                window.location = "/dashboard";
             })
-            .then((response) => {
-                console.log("response:", response);
-            })
+            // .then((response) => {
+            //     console.log("response:", response);
+            // })
             .catch((err) => {
                 console.log(err);
             });
