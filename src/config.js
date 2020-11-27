@@ -1,4 +1,4 @@
 export default {
-    API_ENDPOINT: "http://localhost:8000/api",
-    TOKEN_KEY: 'habit-tracker-capstone'
-    }
+  API_ENDPOINT: 'http://localhost:8000/api',
+  TOKEN_KEY: 'habit-tracker-auth-token',
+};

@@ -1,0 +1,90 @@
+body {
+    background-color: lightgray;
+}
+.box-controller {
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    margin-bottom: -35px;
+    margin-top: 40px;
+    align-items: center;
+    transition: visibility 0.5s ease-out;
+    
+}
+
+.controller {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    line-height: 2;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controller:hover{
+    background-color: rgb(223, 195, 231);
+    border-radius: 5px;
+}
+
+/* //Currently Selected Controller */
+.selected-controller {
+    transition: border 0.5s ease-out;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 7px;
+}
+
+.box-container {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.inner-container {
+    padding-bottom: 40px;
+}
+
+.demo {
+    font-size: 0.7rem;
+}
+
+.main-box {
+    font-size: 1.5rem;
+}
+
+button, input {
+    font-size: 1rem;
+}
+
+@media (min-width: 696px) {
+    .box-container {
+        width: 30%;
+    }
+    .box-controller {
+        width: 30%;
+        margin-top: 0px 
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: .6rem;
+}
+
+

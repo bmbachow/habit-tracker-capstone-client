@@ -1,0 +1,32 @@
+.habit-element {
+    margin-top: 110px;
+    margin-bottom: -50px;
+    border: 2px solid black;
+    border-radius: 4px;
+    
+}
+
+.habitForm {
+    
+}
+
+.habitDeleteBtn {
+    border-radius: 5px;
+}
+
+
+    .outer-container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        max-width: 600px;
+    }
+    .image {
+        display: none;
+    }
+
+
+span {
+    font-weight: bold;
+}

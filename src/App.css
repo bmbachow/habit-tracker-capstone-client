@@ -1,105 +1,45 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Open Sans",
-  sans-serif;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
+  background-color: #cccccc;
+  color: rgb(13, 53, 13);
+  font-family: "Courier New"
+}
+.Main-view {
+  display: block;
   text-align: center;
-  line-height: 1.5;
-  min-width: 320px;
 }
 
-nav,
-footer {
-  padding: 1% 0;
-  background-color: #aaa;
+
+.App-header {
+  min-height: 40vh;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+
+button, #delete-note, #increment{
+  display: block;
+  background-color: #D99BAF;
+  color: black;
+  border: none;
+  margin-top: 1em;
 }
 
-header {
-  padding: 45px 15px;
-}
-
-section {
-  padding: 30px 15px;
-  background-color: rgb(255, 210, 128);
-  opacity: .8;
-}
-
-section:nth-child(even) {
-  background-color: rgb(163, 106, 0);
-  opacity: .8;
-}
-
-p {
-  margin: 0 auto;
-  max-width: 650px;
-}
-
-p + p {
-  margin-top: 15px;
+button:hover {
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 form {
   text-align: left;
+  padding-top: 2em;
 }
 
-input, textarea {
-  width: 70%;
-  max-width: 5000px;
-}
-
-.form-section {
-  margin-bottom: 30px;
-}
-
-.how-often {
-  font-size: 14px;
-}
-
-.habit-description {
-  text-align: left;
-  margin-bottom: 30px;
-}
-
-.category-description {
-  text-align: left;
-  margin-bottom: 30px;
-}
-
-.required, .delete {
-  color: red;
-}
-
-.feedback {
-  color: blue;
-}
-
-banner {
-  padding: 1% 0;
-  background-color: #aaa;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
-.habit {
-  font-size: 12px;
-}
-
-.dashboard  div {
-  padding-top: 10px;
-  padding-bottom: 10px;
+input, textarea{
+ display: block;
+ margin-top: 0.5em;
+ margin-bottom: 0.5em;
 }

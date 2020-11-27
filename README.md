@@ -1,21 +1,60 @@
-# Habit Tracker Capstone
-This app helps users create and maintain habits.
+# Habitual Habits Capstone
 
-## Working Prototype (to do later)
-You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://your-app-server.herokuapp.com/
+Habitual Habits is an application that helps users create and maintain habits.
+
+<!-- ## Working Prototype (to do later)
+You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://your-app-server.herokuapp.com/ -->
 
 
-## User Stories (to do now)
-This app is for two types of users: a visitor and a logged-in user
+## User Stories
+This app is for logged in users and visitors
 
 #### Landing Page
-* as a visitor
-* I want to understand what I can do with this app (or sign up, or log in)
-* so I can decide if I want to use it
+* As a new user 
+* I would like to understand what the page is about
+* so that I can use the app efficiently 
+* As a new user 
+* I want to be able to create a new account
+* so that I can access the habit tracker
+* As a new user 
+* I want to be able to sign in into my account
+* so that I can start using my tracker
+
+#### Dashboard Page
+* As a returning user
+* I would like to view a list of my habits
+* As a returning user 
+* I would like to be able to log out of my account
+
+#### Add Habit Page
+* As a returning user 
+* I want to be able to add new habits to my dashboard
+
+#### Habit List Page
+* As a returning user
+* I want to be able to view a list of my habits
+
+#### Mobile Version
+* As a new and returning user 
+* I would like to view the website on both mobile devices and desktop computers
+* so that I can use it on multiple devices
+
+#### Accessibility
+* As a user with disabilities 
+* I would like to navigate the website with the use of keyboard
+* so that I can use the website 
+* As a user with disabilities 
+* I would like for the website to keep high contrast for visibility
+* so that I can see the displayed web app accordingly
+* As a user with disabilities 
+* I would like for the website to be accessible (ARIA)
+* so that I have no problems with using the app
+* As a user with disabilities 
+* I would like for the website to be well structured for the screen readers’s accesibility
+* so that I can use screen reader efficiently
 
 
-
-### Wireframes (to do now)
+### Wireframes
 Landing/Login Page
 :-------------------------:
 ![Landing/Login Page](/github-images/wireframes/landing-page.jpg)
@@ -28,78 +67,109 @@ Habit Drop Down Alternate Page
 
 For Greybox Wireframes Visit https://bmbachow.github.io/habit-tracker-capstone-client/greybox-wireframes/
 
-## Screenshots (to do later)
+<!-- ## Screenshots (to do later)
 Landing/Login Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/login-page-screenshot.png)
 Landing/Register Page
-![Register Page](/github-images/screenshots/login-page-screenshot.png)
+![Register Page](/github-images/screenshots/login-page-screenshot.png) -->
 
-## Functionality (to do now)
+## Functionality
 The app's functionality includes:
-* Every User has the ability to create an account
-* Every user can create new category
-* Every user can create a new habit
-* Users can modify frequency of desired habit completion
-* Every user can indicate if and when a task was performed
-* Users can delete categories
-* Users can rename categories
-* Users can delete habits
-* Users can view their progress
+* Every visitor has the ability to create an account
+* Every registered user can log in to his/her account 
+* Every registered user can view a list of their habits
+* Every registered user can add habits to the list
 
-## Technology (done)
+## Technology
 * Front-End: HTML5, CSS3, JavaScript ES6, React
 * Back-End: Node.js, Express.js, Mocha, Chai, RESTful API Endpoints, Postgres
 * Development Environment: Heroku, DBeaver
 
-
-## Front-end Structure - React Components Map (to do later)
+## Front-end Structure - React Components Map
 * __Index.js__ (stateless)
     * __App.js__ (stateful)
-        * __LandingPage.js__ (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
-            * __Login.js__ (stateful) -
-            * __Register.js__ (stateful) -
-        * __Navbar.js__ (stateless) -
+        * __RegistartionPage.js__ (stateful)
+        * __LoginPage.js__ (stateful)
+        * __Navigation.js__ (stateless)
+            * __Backdrop.js__ (stateless) 
+            * __SideDrawer.js__ (stateless)
+            * __DrawerToggleButton.js__ (stateless)
+        * __Dashboard.js__ (stateful)
+        * __AddHabitPage.js__ (stateful) 
+        * __HabitListPage.js__ (stateful) 
 
-## Back-end Structure - Business Objects (done)
-* Users (database table)
-    * id (auto-generated)
-    * username (email validation)
-    * password (at least 8 chars, at least one alpha and a special character validation)
-    * first_name (varchar(255) alpha_numerical)
-    * last_name (varchar(255) alpha_numerical)
-    * nickname (varchar(255) alpha_numerical)
-* Categories (database table)
-    * id (auto-generated)
-    * user_id
-    * name (varchar(40) - alpha-numerical)
-    * is_deleted (boolean default false)
-* Habits (database table)
-    * id (auto-generated)
-    * category_id
-    * name (varchar(255) - alpha-numerical + special characters)
-    * is_deleted (boolean default false)
-* Tasks (database table)
-    * id (auto-generated)
-    * habit_id
-    * is_completed (boolean default false)
-* Frequency (database table)
-    * id (auto-generated)
-    * task_id
-    * number_of_days (integer maximum 4 characters)
+## Back-end Structure - Business Objects
 
-## API Documentation (to do later)
+* users (database table)
+    * id 
+    * user_name (only lowercase and uppercase letters and dash)
+    * user_password ( at least one number, one lowercase and one uppercase letter, at least eight characters that are letters, numbers or the underscore)
+    * user_email (email validation)
+
+* habits (database table)
+    * id 
+    * user_id (connnection with id from users table)
+    * name
+    * times_completed (numeric)
+    * notes (varchar 255)
+
+## API Documentation
 API Documentation details:
-* get all users
+* get all habits by users => /api/habit/user/:user_id
+```json
+[
+    {
+        "id": 27,
+        "user_id": 3,
+        "name": "eat vegetables",
+        "times_completed": 0,
+        "notes": "eat at least 2 ounces of raw vegetables"
+    }
+]
+```
+* post habits => api/habit
+```json
+{
+    "id": 3,
+    "user_id": 1,
+    "name": "sleep",
+    "times_completed": 0,
+    "notes": "sleep for at least 8 hours"
+}
+```
+* post login users => /api/auth/login
+```json
+{
+    "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2MDIxNzQzNTksInN1YiI6Ik1pY2hhZWwifQ.l6e9Wk39rLfqMdlo8R9nJJEYIDmptqiYOwvAvqrzjos",
+    "userId": 1
+}
+```
+* post registered users => /api/users
+```json
+{
+    "id": 4,
+    "user_name": "Steven"
+}
+```
+* delete habit by id => /api/habit/:habit_id
+```json
+204 No Content
+```
 
-## Responsive (done)
+## Responsive
 App is built to be usable on mobile devices, as well as responsive across mobile, tablet, laptop, and desktop screen resolutions.
 
-## Development Roadmap (to do later)
+## Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-* specific functionality for different types uses such as personal training, addiction recovery, work habits
+* ability to log times completed and see progress towards goals
+* ability to give habits daily or times-per-week requirements
+* integration with other software applications as well as technology like fitness trackers and smart watches
+* badges to reward and incentivize users for successful habit tracking
+* ability to show progress not just on an individual habit, but also on overall habit performance
 
-## How to run it (done)
+
+## How to run it
 Use command line to navigate into the project folder and run the following in terminal
 
 ### Local Node scripts 

@@ -1,0 +1,51 @@
+.title {
+    display: block;
+    color: rgb(7, 65, 41);
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+    
+}
+
+.subtitle {
+    width: 60%;
+    padding-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #FEFFFF;
+    opacity: 0.9;
+    border-radius: 5px;
+    padding: 25px;
+    line-height: 140%;
+}
+
+span {
+    font-weight: bolder;
+}
+
+.App-header {
+    background-image: url("./images/success.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    width: 100%
+}
+
+@media (max-width: 511px) {
+    .title {
+        font-size: 1.8rem;
+        line-height: 110%;
+    }
+    .subtitle {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 696px) {
+    .App-header {
+        padding: 85px;
+    }
+    .subtitle {
+        width: 100%
+    }
+}

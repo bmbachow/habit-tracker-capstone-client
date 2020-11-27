@@ -1,44 +1,73 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
-import Landing from './Landing';
-import SignUp from './SignUp';
-import Dashboard from './Dashboard';
-import EditCategory from './EditCategory'
-import EditHabit from './EditHabit'
-import AddHabit from './AddHabit'
-import AddCategory from './AddCategory'
-import HabitProgress from './HabitProgress'
-import Login from './Login'
+import AppContext from './AppContext';
+import TokenService from './services/token-service.js';
+import NotFoundPage from './NotFoundPage';
+import LandingPage from './LandingPage';
+import Navigation from './Navigation';
+import HabitListPage from './HabitListPage'
+import AddHabitPage from './AddHabitPage'
+import SideDrawer from './SideDrawer';
+import Backdrop from './Backdrop';
 
 
-class App extends React.Component {
+export default class App extends React.Component {
+  
+  state = {
+    sideDrawerOpen: false,
+  };
+  
+  drawerToggleButton = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen}
+    });
+  };
 
-  render() {
-    return (
-      <div className="App">
+  backdropClickHandler = () => {
+    this.setState({sideDrawerOpen: false})
+  };
+
+
+render() {
+  const contextValue = {
+    drawerToggleButton: this.drawerToggleButton,
+  };
+
+  let backdrop;
+
+  if (this.state.sideDrawerOpen) {
+    backdrop = <Backdrop click={this.backdropClickHandler}/>
+  };
+
+  return (
+    <AppContext.Provider value={contextValue}>
+    <div style={{height:'100%'}} className="App">
+      <Navigation />
+      <SideDrawer show={this.state.sideDrawerOpen}/>
+      {backdrop}
+      <main className='Main-view'>
         <Switch>
-          <Route exact path='/' component={Landing} />
-
-          <Route path='/signup' component={SignUp} />
-
-          <Route path='/dashboard' component={Dashboard} />
-
-          <Route path='/edit/:category' component={EditCategory} />
-
-          <Route path='/edit/:habit' component={EditHabit} />
-
-          <Route path='/add/habit' component={AddHabit} />
-
-          <Route path='/add/category' component={AddCategory} />
-
-          <Route path='/progress/:habit' component={HabitProgress} />
-
-          <Route path='/login' component={Login} />
+        <Route exact path='/' render={() => {
+            return <LandingPage />
+          }}/>
+          <Route path='/habit-list' render={() => {
+              return (TokenService.hasAuthToken()
+              ? <HabitListPage />
+              : <Redirect to={{pathname: '/habit-list'}} />)
+          }} />
+          <Route path='/add-habit' render={() => {
+              return (TokenService.hasAuthToken()
+              ? <AddHabitPage/>
+              : <Redirect to={{pathname: '/add-habit'}} />)
+          }} />
+          />
+         <Route component={NotFoundPage} />
         </Switch>
-      </div>
-    );
-  }
-}
+      </main>
+    </div>
+    </AppContext.Provider>
+  );
+ };
+};
 
-export default App;

@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(232, 219, 250);
+}
+
+.add-habit {
+    margin: 50px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 7px;
+    border-radius: 5px;
+}
+
+
+.inner-container {
+    padding-bottom: 40px;
+}
+
+.main-box {
+    font-size: 1.5rem;
+}
+
+button, input {
+    font-size: 1rem;
+}
+
+@media (min-width: 696px) {
+    .box-container {
+        width: 30%;
+    }
+    .box-controller {
+        width: 30%;
+        margin-top: 0px 
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.zen {
+    margin-top: 120px;
+}
+
+@media (max-width: 812px) {
+    .zen {
+        display: none;
+    }
+}
