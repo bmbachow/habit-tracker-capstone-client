@@ -110,7 +110,7 @@ export default class AddHabitPage extends React.Component {
               </div>
               </form>
             </div>
-            <div className="zen"><img src={zen} width="300" height="300"></img></div>
+            <div className="zen"><img alt="zen" src={zen} width="300" height="300"/></div>
             </div>
     );
   };

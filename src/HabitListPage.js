@@ -28,10 +28,6 @@ export default class HabitListPage extends React.Component {
       data[value[0]] = value[1]
     };
 
-    const requestOptions = {
-      method: 'DELETE'
-    };
-
     let { habitId } = data
 
     fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
@@ -99,7 +95,7 @@ export default class HabitListPage extends React.Component {
         <div className="habit-element" key={key}>
           <p><span>Habit Name: </span>{habit.name}</p>
           <p><span>Note: </span>{habit.notes}</p>
-          <form className="habitUpdateForm" onSubmit={this.updateHabit}>
+          <div className="form-container"><form className="habitUpdateForm" onSubmit={this.updateHabit}>
             <input type='hidden' name='habitId' defaultValue={habit.id}></input>
             <input type='hidden' name='user_id' defaultValue={habit.user_id}></input>
             <input type='hidden' name='name' defaultValue={habit.name}></input>
@@ -111,6 +107,7 @@ export default class HabitListPage extends React.Component {
             <input type='hidden' name='habitId' defaultValue={habit.id}></input>
             <button type='submit' className='habitDeleteBtn'>Delete Habit</button>
           </form>
+          </div>
         </div>);
     });
     return (

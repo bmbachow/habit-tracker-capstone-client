@@ -6,8 +6,15 @@
     
 }
 
-.habitForm {
-    
+.form-container {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.habitUpdateForm {
+    padding-right: 20px;
 }
 
 .habitDeleteBtn {

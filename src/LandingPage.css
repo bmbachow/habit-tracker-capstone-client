@@ -18,7 +18,6 @@ body {
     flex: 1;
     text-align: center;
     height: 100%;
-    line-height: 2;
     cursor: pointer;
     font-weight: bold;
 }
@@ -26,6 +25,7 @@ body {
 .controller:hover{
     background-color: rgb(223, 195, 231);
     border-radius: 5px;
+    border-style: solid;
 }
 
 /* //Currently Selected Controller */
@@ -78,7 +78,6 @@ button, input {
     }
     .box-controller {
         width: 30%;
-        margin-top: 0px 
     }
 }
 
