@@ -9,7 +9,6 @@
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
 }
 
 .side-drawer.open {
@@ -33,9 +32,11 @@
     padding-bottom: 0;
 }
 
-.nav-link:hover,
-.nav-link:active {
-    background-color: #e99bf8;
+@media (max-width: 695px) {
+    .nav-link:hover,
+    .nav-link:active {
+        background-color: #e99bf8;
+    }
 }
 
 @media (min-width: 696px) {
@@ -43,3 +44,5 @@
         display: none;
     }
 }
+
+

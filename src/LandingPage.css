@@ -10,8 +10,6 @@ body {
     margin-bottom: -35px;
     margin-top: 40px;
     align-items: center;
-    transition: visibility 0.5s ease-out;
-    
 }
 
 .controller {
@@ -28,10 +26,6 @@ body {
     border-style: solid;
 }
 
-/* //Currently Selected Controller */
-.selected-controller {
-    transition: border 0.5s ease-out;
-}
 
 .box {
     display: flex;

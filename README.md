@@ -1,9 +1,8 @@
 # Habitual Habits Capstone
-
 Habitual Habits is an application that helps users create and maintain habits.
 
-<!-- ## Working Prototype (to do later)
-You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://your-app-server.herokuapp.com/ -->
+## Working Prototype (to do later)
+You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://calm-ocean-11149.herokuapp.com/ -->
 
 
 ## User Stories

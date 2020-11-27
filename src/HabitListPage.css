@@ -2,8 +2,7 @@
     margin-top: 110px;
     margin-bottom: -50px;
     border: 2px solid black;
-    border-radius: 4px;
-    
+    border-radius: 4px;    
 }
 
 .form-container {
@@ -21,18 +20,17 @@
     border-radius: 5px;
 }
 
-
-    .outer-container {
+.outer-container {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 80%;
         max-width: 600px;
-    }
-    .image {
+}
+
+.image {
         display: none;
     }
-
 
 span {
     font-weight: bold;

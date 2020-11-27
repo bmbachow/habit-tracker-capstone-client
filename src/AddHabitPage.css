@@ -33,11 +33,15 @@ input {
     font-size: 1.5rem;
 }
 
+.notes {
+    height: 200px;
+}
+
 button, input {
     font-size: 1rem;
 }
 
-@media (min-width: 696px) {
+/* @media (min-width: 696px) {
     .box-container {
         width: 30%;
     }
@@ -45,7 +49,7 @@ button, input {
         width: 30%;
         margin-top: 0px 
     }
-}
+} */
 
 .error-message {
     color: red;
