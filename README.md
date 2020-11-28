@@ -2,7 +2,7 @@
 Habitual Habits is an application that helps users create and maintain habits.
 
 ## Working Prototype (to do later)
-You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https://calm-ocean-11149.herokuapp.com/ -->
+You can access a working prototype of the React app here: https://habit-tracker-capstone-client.vercel.app/ and Node app here: https:/habit-tracker-capstone.herokuapp.com/api -->
 
 
 ## User Stories
@@ -66,12 +66,15 @@ Habit Drop Down Alternate Page
 
 For Greybox Wireframes Visit https://bmbachow.github.io/habit-tracker-capstone-client/greybox-wireframes/
 
-<!-- ## Screenshots (to do later)
+## Screenshots
 Landing/Login Page
 :-------------------------:
-![Landing Page](/github-images/screenshots/login-page-screenshot.png)
+![Landing Page](/screenshots/add-habit.png)
 Landing/Register Page
-![Register Page](/github-images/screenshots/login-page-screenshot.png) -->
+![Register Page](/screenshots/login.png)
+![Habits List Page](/screenshots/habits-list.png)
+![Add Habit Page](/screenshots/add-habit.png)
+![Side Bar](/screenshots/side-bar.png)
 
 ## Functionality
 The app's functionality includes:
