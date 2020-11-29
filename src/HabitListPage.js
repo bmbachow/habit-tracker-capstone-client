@@ -32,7 +32,6 @@ export default class HabitListPage extends React.Component {
   completeHabit(event) {
     event.preventDefault()
     const data = {}
-
     const formData = new FormData(event.target)
 
     for (let value of formData) {
@@ -52,7 +51,10 @@ export default class HabitListPage extends React.Component {
       .then(response => {
         (!response.ok)
         ? response.json().then(e => Promise.reject(e))
-        : response.json().times_completed = response.json().times_completed + 1
+        : response.json()
+        .then(data =>
+          {data.times_completed = data.times_completed + 1
+          })
         window.location = `/habit-list`
       });
   }
