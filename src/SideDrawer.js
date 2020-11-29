@@ -9,7 +9,6 @@ import './SideDrawer.css';
 class SideDrawer extends Component {
     static contextType = AppContext;
     logOutClick = () => {
-        // console.log('Logging out')
         TokenService.clearAuthToken()
         TokenService.getUserId = (id) => {
         }

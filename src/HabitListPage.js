@@ -13,8 +13,48 @@ export default class HabitListPage extends React.Component {
   };
 
 
-  updateHabit(event) {
+  // updateAnimation(id, updatedAnimation) {
+  //   return fetch(`${config.API_ENDPOINT}/animations/${id}`, {
+  //       method: 'PATCH',
+  //       headers: {
+  //           'authorization': `bearer ${TokenService.getAuthToken()}`,
+  //           'content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify(updatedAnimation),
+  //   })
+  //   .then(res =>
+  //       (!res.ok)
+  //           ? res.json().then(e => Promise.reject(e))
+  //           : res.json()
+  //   )
+  // }
 
+  completeHabit(event) {
+    event.preventDefault()
+    const data = {}
+
+    const formData = new FormData(event.target)
+
+    for (let value of formData) {
+      data[value[0]] = value[1]
+    };
+
+    let { habitId} = data
+    return fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(habitId),
+
+    })
+
+      .then(response => {
+        (!response.ok)
+        ? response.json().then(e => Promise.reject(e))
+        : response.json().times_completed = response.json().times_completed + 1
+        window.location = `/habit-list`
+      });
   }
 
   deleteHabit(event) {
@@ -28,7 +68,7 @@ export default class HabitListPage extends React.Component {
       data[value[0]] = value[1]
     };
 
-    let { habitId } = data
+    let { habitId} = data
 
     fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
       method: 'DELETE',
@@ -39,7 +79,9 @@ export default class HabitListPage extends React.Component {
     })
 
       .then(response => {
-
+        (!response.ok)
+        ? response.json().then(e => Promise.reject(e))
+        : response.json()
         window.location = `/habit-list`
       });
 
@@ -58,7 +100,7 @@ export default class HabitListPage extends React.Component {
       }
     };
 
-    //using the url and paramters above make the api call
+    //using the url and parameters above make the api call
     fetch(url, options)
 
       // if the api returns data ...
@@ -95,14 +137,16 @@ export default class HabitListPage extends React.Component {
         <div className="habit-element" key={key}>
           <p><span>Habit Name: </span>{habit.name}</p>
           <p><span>Note: </span>{habit.notes}</p>
-          <div className="form-container"><form className="habitUpdateForm" onSubmit={this.updateHabit}>
+          <div className="form-container">
+          <form className="habitUpdateForm" onSubmit={this.completeHabit}>
             <input type='hidden' name='habitId' defaultValue={habit.id}></input>
             <input type='hidden' name='user_id' defaultValue={habit.user_id}></input>
             <input type='hidden' name='name' defaultValue={habit.name}></input>
             <input type='hidden' name='notes' defaultValue={habit.notes}></input>
             <input type='hidden' name='times_completed' defaultValue={habit.times_completed}></input>
-            <button type='submit' className='habitDeleteBtn'>Update Habit</button>
+            <button type='submit' className='habitDeleteBtn'>Completed</button>
           </form>
+          <p>Times Completed: {habit.times_completed}</p>
           <form className="habitDeleteForm" onSubmit={this.deleteHabit}>
             <input type='hidden' name='habitId' defaultValue={habit.id}></input>
             <button type='submit' className='habitDeleteBtn'>Delete Habit</button>

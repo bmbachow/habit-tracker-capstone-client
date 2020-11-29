@@ -35,7 +35,6 @@ export default class AddHabitPage extends React.Component {
         this.setState({
           addHabit: data
         });
-        // console.log(addHabit)
         
         ////////////////POST REQUEST FOR habits////////////////////////////
     
@@ -44,10 +43,9 @@ export default class AddHabitPage extends React.Component {
             name,
             notes
         };
-        // console.log(newHabit)
     
     
-        //useing the url and paramters above make the api call
+        //using the url and parameters above to make the api call
         fetch(`${config.API_ENDPOINT}/habit`, {
           method: 'POST',
           body: JSON.stringify(newHabit),
@@ -85,7 +83,6 @@ export default class AddHabitPage extends React.Component {
                   <label htmlFor="habit">Habit Type</label>
                   <input
                     id="habit"
-                    type="text"
                     name="name"
                     className="login-input"
                     placeholder="running"
@@ -96,7 +93,6 @@ export default class AddHabitPage extends React.Component {
                   <label htmlFor="notes">Notes</label>
                   <textarea
                     id="notes"
-                    type="text"
                     name="notes"
                     className="notes"
                     placeholder="Your notes go here"

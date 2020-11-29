@@ -46,7 +46,6 @@ export default class RegistrationPage extends React.Component {
       let outputPassword = inputPassword;
       // at least one number, one lowercase and one uppercase letter
       // at least eight characters that are letters, numbers and special character
-      //let passwordformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/;
       let passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
       if(!inputPassword.match(passwordformat)) {
           outputPassword = ""
