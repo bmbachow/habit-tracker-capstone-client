@@ -37,53 +37,56 @@ export default class HabitListPage extends React.Component {
     for (let value of formData) {
       data[value[0]] = value[1]
     };
+    let { habitId, user_id, name, notes, times_completed } = data
+    fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        habitId,
+        user_id,
+        name,
+        notes,
+        times_completed
+      })
+        .then(response => {
+          (!response.ok)
+            ? response.json().then(e => Promise.reject(e))
+            : response.json()
+              .then(data => {
+                setState({data.times_completed = data.times_completed + 1})
+              })
+              window.location = `/habit-list`
+            })
+          }
+        }
 
-    let { habitId} = data
-    return fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
-      method: 'PATCH',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(habitId),
 
-    })
 
-      .then(response => {
-        (!response.ok)
-        ? response.json().then(e => Promise.reject(e))
-        : response.json()
-        .then(data =>
-          {data.times_completed = data.times_completed + 1
-          })
-        window.location = `/habit-list`
-      });
-  }
 
   deleteHabit(event) {
     event.preventDefault()
-
     const data = {}
-
     const formData = new FormData(event.target)
 
     for (let value of formData) {
       data[value[0]] = value[1]
     };
 
-    let { habitId} = data
+    let { habitId } = data
 
     fetch(`${config.API_ENDPOINT}/habit/${habitId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
-      }
+      },
+      body: habitId
 
     })
 
       .then(response => {
         (!response.ok)
-        ? response.json().then(e => Promise.reject(e))
-        : response.json()
+          ? response.json().then(e => Promise.reject(e))
+          : response.json()
         window.location = `/habit-list`
       });
 
@@ -140,19 +143,19 @@ export default class HabitListPage extends React.Component {
           <p><span>Habit Name: </span>{habit.name}</p>
           <p><span>Note: </span>{habit.notes}</p>
           <div className="form-container">
-          <form className="habitUpdateForm" onSubmit={this.completeHabit}>
-            <input type='hidden' name='habitId' defaultValue={habit.id}></input>
-            <input type='hidden' name='user_id' defaultValue={habit.user_id}></input>
-            <input type='hidden' name='name' defaultValue={habit.name}></input>
-            <input type='hidden' name='notes' defaultValue={habit.notes}></input>
-            <input type='hidden' name='times_completed' defaultValue={habit.times_completed}></input>
-            <button type='submit' className='habitDeleteBtn'>Completed</button>
-          </form>
-          <p>Times Completed: {habit.times_completed}</p>
-          <form className="habitDeleteForm" onSubmit={this.deleteHabit}>
-            <input type='hidden' name='habitId' defaultValue={habit.id}></input>
-            <button type='submit' className='habitDeleteBtn'>Delete Habit</button>
-          </form>
+            <form className="habitUpdateForm" onSubmit={this.completeHabit}>
+              <input type='hidden' name='habitId' defaultValue={habit.id}></input>
+              <input type='hidden' name='user_id' defaultValue={habit.user_id}></input>
+              <input type='hidden' name='name' defaultValue={habit.name}></input>
+              <input type='hidden' name='notes' defaultValue={habit.notes}></input>
+              <input type='hidden' name='times_completed' defaultValue={habit.times_completed}></input>
+              <button type='submit' className='habitDeleteBtn'>Completed</button>
+            </form>
+            <p>Times Completed: {habit.times_completed}</p>
+            <form className="habitDeleteForm" onSubmit={this.deleteHabit}>
+              <input type='hidden' name='habitId' defaultValue={habit.id}></input>
+              <button type='submit' className='habitDeleteBtn'>Delete Habit</button>
+            </form>
           </div>
         </div>);
     });
